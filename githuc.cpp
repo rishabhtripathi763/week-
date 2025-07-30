@@ -1,26 +1,16 @@
 #include <stdio.h>
 
 int main() {
-    int num, i, isPrime = 1;
+    int num, reversed = 0;
 
-    printf("Enter a positive integer: ");
+    printf("Enter a three-digit number: ");
     scanf("%d", &num);
 
-    if (num <= 1) {
-        isPrime = 0;
-    } else {
-        for (i = 2; i <= num / 2; ++i) {
-            if (num % i == 0) {
-                isPrime = 0;
-                break;
-            }
-        }
+    while(num != 0) {
+        reversed = reversed * 10 + num % 10;
+        num /= 10;
     }
 
-    if (isPrime)
-        printf("%d is a prime number.\n", num);
-    else
-        printf("%d is not a prime number.\n", num);
-
+    printf("Reversed number: %d\n", reversed);
     return 0;
 }
